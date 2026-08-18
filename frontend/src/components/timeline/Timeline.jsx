@@ -41,6 +41,24 @@ import {
 } from "lucide-react";
 
 import { useEditor } from "../../context/EditorContext";
+function getClipThumbnails(thumbnails, sourceStart, sourceEnd, clipWidth) {
+  if (!thumbnails || !thumbnails.length || sourceEnd <= sourceStart) {
+    return [];
+  }
+
+  const visible = thumbnails.filter(
+    (thumb) =>
+      thumb.time >= sourceStart &&
+      thumb.time <= sourceEnd
+  );
+
+  return visible.map((thumb) => ({
+    ...thumb,
+    position:
+      ((thumb.time - sourceStart) / (sourceEnd - sourceStart)) *
+      clipWidth,
+  }));
+}
 
 const TRACK_HEIGHT = 72;
 
