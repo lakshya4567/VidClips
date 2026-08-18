@@ -1,0 +1,46 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Build/output files
+build/
+dist/
+release/
+outputs/
+logs/
+
+# ML model files
+*.pt
+*.onnx
+*.pth
+
+# Databases / local data
+*.db
+
+# IDE
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python packaging
+*.spec
+*.log
+
+# Temporary files
+*.tmp
+*.temp

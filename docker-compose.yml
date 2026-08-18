@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"   # FastAPI
+      - "7860:7860"   # Gradio (run gradio_app.py as a second process/service if needed)
+    volumes:
+      - ./outputs:/app/outputs
+      - ./checkpoints:/app/checkpoints
+      - ./models:/app/models
+      - ./app.db:/app/app.db
+    environment:
+      - ENVIRONMENT=prod
+      - DEVICE=auto
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"

@@ -1,0 +1,9 @@
+- [x] Phase 1: Analyze project (complete)
+- [ ] Phase 2: Fix architecture - refactor folder structure
+- [ ] Phase 3: Rebuild frontend core (context, hooks, services)
+- [ ] Phase 4: Build UI components (layout, player, timeline, inspector)
+- [ ] Phase 5: Connect frontend to backend (API integration, job polling)
+- [ ] Phase 6: Polish UI (notifications, export dialog, settings)
+- [ ] Phase 7: Add Electron preparation
+- [ ] Phase 8: Build verification
+- [ ] Phase 9: Final testing

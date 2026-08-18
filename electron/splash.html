@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>VidClips</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,Arial,sans-serif;
+}
+
+body{
+    background:#0B1120;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+}
+
+.container{
+    text-align:center;
+}
+
+.logo{
+    font-size:52px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.subtitle{
+    color:#94A3B8;
+    font-size:18px;
+    margin-bottom:40px;
+}
+
+.loader{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    border:6px solid #1E293B;
+    border-top:6px solid #3B82F6;
+    animation:spin 1s linear infinite;
+    margin:auto;
+}
+
+.status{
+    margin-top:35px;
+    color:#CBD5E1;
+    font-size:16px;
+}
+
+@keyframes spin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+🎬 VidClips
+</div>
+
+<div class="subtitle">
+AI Video Intelligence Platform
+</div>
+
+<div class="loader"></div>
+
+<div class="status">
+Initializing AI Engine...
+</div>
+
+</div>
+
+</body>
+</html>

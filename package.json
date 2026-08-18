@@ -1,0 +1,25 @@
+{
+  "name": "vidclips",
+  "version": "1.0.0",
+  "description": "VidClips AI Video Intelligence Platform",
+  "author": "Lakshya",
+  "license": "ISC",
+  "main": "electron/main.js",
+
+  "scripts": {
+    "frontend": "cmd /c \"cd /d frontend && npm run dev\"",
+    "electron": "electron .",
+    "dev": "concurrently -k \"npm run frontend\" \"wait-on http://localhost:5173 && npm run electron\""
+  },
+
+  "devDependencies": {
+    "electron": "^43.1.1",
+    "electron-builder": "^26.15.3"
+  },
+
+  "dependencies": {
+    "concurrently": "^10.0.3",
+    "cross-env": "^10.1.0",
+    "wait-on": "^9.0.10"
+  }
+}

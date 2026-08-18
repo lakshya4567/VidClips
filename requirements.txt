@@ -1,0 +1,40 @@
+# --- Core ---
+fastapi>=0.111
+uvicorn[standard]>=0.30
+pydantic>=2.7
+pydantic-settings>=2.3
+sqlalchemy>=2.0
+gradio>=4.36
+python-multipart>=0.0.9
+
+# --- Computer vision / video ---
+opencv-python-headless>=4.10
+numpy>=1.26
+scenedetect[opencv]>=0.6.4
+ultralytics>=8.2      # YOLOv8 detection + ByteTrack
+mediapipe>=0.10        # face / pose / hands / selfie segmentation
+easyocr>=1.7           # OCR
+
+# --- Depth ---
+timm>=1.0               # required by MiDaS hub model
+
+# --- Audio ---
+librosa>=0.10
+soundfile>=0.12
+openai-whisper>=20231117
+pyannote.audio>=3.1     # speaker diarization (requires a HuggingFace token for gated models)
+
+# --- Deep learning runtime ---
+torch>=2.3
+torchvision>=0.18
+onnxruntime>=1.18   # use onnxruntime (CPU build) instead if no CUDA
+
+# --- Utilities ---
+redis>=5.0               # optional: task queue backend for scaling beyond BackgroundTasks
+tqdm>=4.66
+python-dotenv>=1.0
+
+# --- Testing ---
+pytest>=8.2
+pytest-cov>=5.0
+httpx>=0.27               # FastAPI test client
