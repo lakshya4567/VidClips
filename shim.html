@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<!-- saved from url=(0132)blob:https://4cnk7obntp9kijskatwcqldhghryyopx1z7t83jdoe18ehcqyv-h966586903.scf.usercontent.goog/390fb3db-7573-47db-b5b1-7b75354fb0a0 -->
+<html lang="en" style="scroll-padding-top: 80px; scroll-behavior: smooth;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VidClips | AI Video Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Color Palette */
+            --bg-obsidian: #0b1120;
+            --bg-zinc: #27272a;
+            --accent-blue: #3b82f6;
+            --accent-purple: #9333ea;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            
+            /* Gradients */
+            --gradient-accent: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+            --gradient-glow: radial-gradient(circle at center, rgba(59, 130, 246, 0.15) 0%, rgba(11, 17, 32, 0) 70%);
+            
+            /* Typography */
+            --font-main: 'Roboto', sans-serif;
+            
+            /* Layout & Spacing */
+            --header-height: 80px;
+            --container-width: 1200px;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            
+            /* Visuals */
+            --border-radius: 4px; /* Sharp, utilitarian */
+            --transition-fast: 0.2s ease-in-out;
+            --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-obsidian);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding-top: var(--header-height);
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            line-height: 1.2;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: var(--spacing-md);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.125rem;
+        }
+
+        .text-accent {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .mono-label {
+            font-family: monospace;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-blue);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        section {
+            padding: var(--spacing-xl) 0;
+            position: relative;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: rgba(11, 17, 32, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 300;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 32px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: 0.05em;
+        }
+
+        nav {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            nav {
+                display: block;
+            }
+            nav ul {
+                display: flex;
+                list-style: none;
+                gap: var(--spacing-md);
+            }
+            nav a:hover {
+                color: var(--accent-blue);
+            }
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--gradient-accent);
+            color: var(--text-primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-blue) 100%);
+            border-radius: var(--border-radius);
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-primary:hover::before {
+            opacity: 1;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border-color: var(--bg-zinc);
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-blue);
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: calc(100vh - var(--header-height));
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to right, var(--bg-obsidian) 0%, rgba(11, 17, 32, 0.7) 50%, rgba(11, 17, 32, 0.2) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero p.lead {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            color: var(--text-primary);
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+            font-family: monospace;
+            font-size: 0.875rem;
+            color: var(--accent-blue);
+            opacity: 0.8;
+        }
+
+        .hero-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-meta span::before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-purple);
+            border-radius: 50%;
+        }
+
+        /* Platform / Integration Section */
+        .platform {
+            background-color: var(--bg-obsidian);
+            position: relative;
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .platform-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .platform-content {
+            padding-right: var(--spacing-md);
+        }
+
+        .platform-content p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .tech-spec-list {
+            list-style: none;
+            margin-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: var(--spacing-md);
+        }
+        
+        .tech-spec-list li {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            font-size: 0.875rem;
+        }
+        
+        .tech-spec-list .label {
+            color: var(--accent-blue);
+            font-family: monospace;
+        }
+        
+        .tech-spec-list .value {
+            color: var(--text-secondary);
+        }
+
+        .platform-image-wrapper {
+            position: relative;
+            border: 1px solid var(--bg-zinc);
+            padding: 1rem;
+            background: rgba(39, 39, 42, 0.3);
+        }
+
+        .platform-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -1px; left: -1px;
+            width: 20px; height: 20px;
+            border-top: 2px solid var(--accent-blue);
+            border-left: 2px solid var(--accent-blue);
+            z-index: 2;
+        }
+        
+        .platform-image-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: -1px; right: -1px;
+            width: 20px; height: 20px;
+            border-bottom: 2px solid var(--accent-purple);
+            border-right: 2px solid var(--accent-purple);
+            z-index: 2;
+        }
+
+        .platform-image {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            filter: grayscale(20%) contrast(120%);
+        }
+
+        /* Features / Architecture Section */
+        .features {
+            background-color: var(--bg-zinc);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+        
+        .features-texture {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            opacity: 0.1;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .features .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .feature-card {
+            background-color: var(--bg-zinc);
+            padding: var(--spacing-md);
+            transition: var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 2px;
+            height: 100%;
+            background: var(--gradient-accent);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: var(--transition-smooth);
+        }
+
+        .feature-card:hover {
+            background-color: rgba(39, 39, 42, 0.8);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            color: var(--accent-blue);
+            margin-bottom: var(--spacing-sm);
+            height: 48px;
+            width: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.125rem;
+        }
+        
+        .feature-card p {
+            font-size: 0.875rem;
+            margin-bottom: 0;
+            flex-grow: 1;
+        }
+
+        /* Abstract Data Visualizer (Decorative element) */
+        .data-visualizer {
+            display: flex;
+            gap: 4px;
+            height: 60px;
+            align-items: flex-end;
+            margin-top: var(--spacing-md);
+            opacity: 0.5;
+        }
+
+        .data-bar {
+            flex: 1;
+            background-color: var(--accent-blue);
+            animation: pulseHeight 2s ease-in-out infinite alternate;
+        }
+
+        .data-bar:nth-child(even) {
+            background-color: var(--accent-purple);
+            animation-delay: 0.5s;
+        }
+        
+        .data-bar:nth-child(3n) {
+            animation-delay: 1s;
+        }
+
+        @keyframes pulseHeight {
+            0% { height: 20%; }
+            100% { height: 100%; }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-obsidian);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: var(--spacing-md) 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .footer-logo {
+            filter: grayscale(100%);
+            opacity: 0.5;
+            transition: var(--transition-fast);
+        }
+        
+        .footer-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-family: monospace;
+        }
+        
+        .footer-link {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            text-decoration: underline;
+            text-decoration-color: rgba(255,255,255,0.2);
+        }
+        
+        .footer-link:hover {
+            color: var(--accent-blue);
+            text-decoration-color: var(--accent-blue);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="blob:https://4cnk7obntp9kijskatwcqldhghryyopx1z7t83jdoe18ehcqyv-h966586903.scf.usercontent.goog/390fb3db-7573-47db-b5b1-7b75354fb0a0#" class="logo">
+                <img src="https://labs.google.com/pomelli_downloads/websites/bnpTni6_YbncdrhifEu4_3/resources/9knqQ5ZGlFG2gPM1VtT_uZ?authuser=0" alt="VidClips Logo">
+                <span class="logo-text text-accent">VidClips</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="blob:https://4cnk7obntp9kijskatwcqldhghryyopx1z7t83jdoe18ehcqyv-h966586903.scf.usercontent.goog/390fb3db-7573-47db-b5b1-7b75354fb0a0#platform">Platform Architecture</a></li>
+                    <li><a href="blob:https://4cnk7obntp9kijskatwcqldhghryyopx1z7t83jdoe18ehcqyv-h966586903.scf.usercontent.goog/390fb3db-7573-47db-b5b1-7b75354fb0a0#features">Analysis Modules</a></li>
+                </ul>
+            </nav>
+            <a href="https://lakshya4567.github.io/VidClips/" target="_blank" class="btn btn-primary">Access Platform</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-bg" style="background-image: url(&#39;https://labs.google.com/pomelli_downloads/websites/bnpTni6_YbncdrhifEu4_3/resources/aYXPaZJ2ADi8eCQGHwe_S2?authuser=0&#39;); background-size: cover; background-position: center;" data-alt="Abstract glowing digital nodes and fiber optic data streams in electric blue and vibrant purple against a deep obsidian background, representing artificial intelligence processing video metadata. Sharp, precise geometric lines, computed darkroom aesthetic, hyper-functional. No text."></div>
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <span class="mono-label">System Initialization</span>
+                    <h1>Deep Video Analysis &amp;<br><span class="text-accent">Metadata Extraction</span></h1>
+                    <p class="lead">An integrated AI video intelligence platform offering functional utility for object detection, spatial tracking, and analytical profiling within a secure local environment.</p>
+                    <div style="margin-top: 2rem;">
+                        <a href="https://lakshya4567.github.io/VidClips/" target="_blank" class="btn btn-primary">Access Platform</a>
+                    </div>
+                    
+                    <div class="hero-meta">
+                        <span>Intelligence</span>
+                        <span>Efficiency</span>
+                        <span>Innovation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="platform" id="platform">
+            <div class="container">
+                <div class="platform-grid">
+                    <div class="platform-content">
+                        <span class="mono-label">Core Architecture</span>
+                        <h2>AI Video Intelligence</h2>
+                        <p>VidClips positions itself as a technical utility for video analysis, offering an integrated workspace for deep insights. We prioritize an accessible, evidence-based scientific approach to metadata extraction and object detection through robust local AI processing.</p>
+                        <p>Designed with a functional utilitarian aesthetic, the platform strips away unnecessary complexity to deliver hyper-functional precision for selective market applications.</p>
+                        
+                        <ul class="tech-spec-list">
+                            <li>
+                                <span class="label">FUNCTION</span>
+                                <span class="value">Technical Utility</span>
+                            </li>
+                            <li>
+                                <span class="label">PROCESSING</span>
+                                <span class="value">Local AI Execution</span>
+                            </li>
+                            <li>
+                                <span class="label">PURPOSE</span>
+                                <span class="value">Practical Extraction</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="data-visualizer">
+                            <div class="data-bar" style="height: 40%"></div>
+                            <div class="data-bar" style="height: 80%"></div>
+                            <div class="data-bar" style="height: 60%"></div>
+                            <div class="data-bar" style="height: 100%"></div>
+                            <div class="data-bar" style="height: 30%"></div>
+                            <div class="data-bar" style="height: 70%"></div>
+                            <div class="data-bar" style="height: 50%"></div>
+                            <div class="data-bar" style="height: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="platform-image-wrapper">
+                        <img src="https://labs.google.com/pomelli_downloads/websites/bnpTni6_YbncdrhifEu4_3/resources/bEoPlEt73tR69i5PwfZOZK?authuser=0" alt="Abstract visualization of local AI processing" class="platform-image" data-alt="Macro shot of a glowing electric blue laser scanning over a dense metallic grid structure and silicon architecture, casting deep shadows. High contrast, hyper-functional precision, technical utility aesthetic, synthetic vibrancy. Deep obsidian and electric blue palette representing data extraction. No text.">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="features-texture" style="background-image: url(&#39;https://labs.google.com/pomelli_downloads/websites/bnpTni6_YbncdrhifEu4_3/resources/8MfwaMBC1LKeLMOuJv8kkp?authuser=0&#39;); background-size: cover; background-position: center;" data-alt="Subtle dark gray and obsidian technical grid pattern with faint electric blue intersecting points. Utilitarian, precise, computed aesthetic. Minimalist background texture. No text."></div>
+            <div class="container">
+                <div class="section-header">
+                    <span class="mono-label">Analytical Modules</span>
+                    <h2>Extraction Capabilities</h2>
+                    <p>Comprehensive tools to run AI-driven inspections for scenes, objects, text, and motion patterns.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-film"></i>
+                        </div>
+                        <h3>Scene Detection</h3>
+                        <p>Automatically identifies and segments different scenes within a video for organized editing and analysis.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-cube"></i>
+                        </div>
+                        <h3>Object Recognition</h3>
+                        <p>Uses advanced AI models to detect, identify, and track various objects throughout video footage.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-user-focus"></i>
+                        </div>
+                        <h3>Face Detection</h3>
+                        <p>Analyzes video frames to identify and track human faces for visual intelligence applications.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-font"></i>
+                        </div>
+                        <h3>OCR Text Extraction</h3>
+                        <p>Utilizes Optical Character Recognition to detect and extract textual information appearing within video sequences.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-waveform-lines"></i>
+                        </div>
+                        <h3>Audio Analysis</h3>
+                        <p>Processes and evaluates the audio components of video files to provide metadata and insights.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h3>Motion Analysis</h3>
+                        <p>Tracks and analyzes movement patterns and motion within video clips.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+                        <h3>Color Analysis</h3>
+                        <p>Evaluates color profiles and visual metadata across the duration of a video project.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <a href="blob:https://4cnk7obntp9kijskatwcqldhghryyopx1z7t83jdoe18ehcqyv-h966586903.scf.usercontent.goog/390fb3db-7573-47db-b5b1-7b75354fb0a0#" class="logo footer-logo">
+                <img src="https://labs.google.com/pomelli_downloads/websites/bnpTni6_YbncdrhifEu4_3/resources/9knqQ5ZGlFG2gPM1VtT_uZ?authuser=0" alt="VidClips Logo">
+            </a>
+            <p class="copyright">© VidClips. AI Video Intelligence Platform.</p>
+            <a href="https://lakshya4567.github.io/VidClips/" target="_blank" class="footer-link">lakshya4567.github.io/VidClips/</a>
+        </div>
+    </footer>
+
+<div style="text-align:right;padding:16px"><a href="https://support.google.com/legal/answer/3110420" target="_blank" style="color:inherit;text-decoration:none;font-size:12px">Report legal issue</a></div><style>
+body { position: relative; }
+div.ai-image-badge {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2225%22%20height%3D%2225%22%20viewBox%3D%220%200%2025%2025%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cg%3E%0A%3Cmask%20id%3D%22path-2-inside-1_4816_19485%22%20fill%3D%22white%22%3E%0A%3Cpath%20d%3D%22M17.9651%2010.7604L16.8609%208.36458L14.4651%207.28125L16.8609%206.17708L17.9651%203.78125L19.0484%206.17708L21.4442%207.28125L19.0484%208.36458L17.9651%2010.7604ZM17.9651%2021.7604L16.8817%2019.3437L14.4651%2018.2604L16.8817%2017.1771L17.9651%2014.7604L19.0484%2017.1771L21.4651%2018.2604L19.0484%2019.3437L17.9651%2021.7604ZM10.9651%2019.2604L8.94423%2014.7812L4.46506%2012.7604L8.94423%2010.7396L10.9651%206.26042L12.9859%2010.7396L17.4651%2012.7604L12.9859%2014.7812L10.9651%2019.2604Z%22%2F%3E%0A%3C%2Fmask%3E%0A%3Cpath%20d%3D%22M17.9651%2010.7604L16.8609%208.36458L14.4651%207.28125L16.8609%206.17708L17.9651%203.78125L19.0484%206.17708L21.4442%207.28125L19.0484%208.36458L17.9651%2010.7604ZM17.9651%2021.7604L16.8817%2019.3437L14.4651%2018.2604L16.8817%2017.1771L17.9651%2014.7604L19.0484%2017.1771L21.4651%2018.2604L19.0484%2019.3437L17.9651%2021.7604ZM10.9651%2019.2604L8.94423%2014.7812L4.46506%2012.7604L8.94423%2010.7396L10.9651%206.26042L12.9859%2010.7396L17.4651%2012.7604L12.9859%2014.7812L10.9651%2019.2604Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M17.9651%2010.7604L17.511%2010.9697L17.9694%2011.9644L18.4206%2010.9664L17.9651%2010.7604ZM16.8609%208.36458L17.315%208.1553L17.2369%207.98586L17.0669%207.90899L16.8609%208.36458ZM14.4651%207.28125L14.2558%206.82715L13.2611%207.28558L14.2591%207.73684L14.4651%207.28125ZM16.8609%206.17708L17.0702%206.63118L17.2378%206.55394L17.315%206.38636L16.8609%206.17708ZM17.9651%203.78125L18.4206%203.57524L17.9694%202.57727L17.511%203.57197L17.9651%203.78125ZM19.0484%206.17708L18.5928%206.38309L18.6697%206.55309L18.8391%206.63118L19.0484%206.17708ZM21.4442%207.28125L21.6502%207.73684L22.6482%207.28558L21.6535%206.82715L21.4442%207.28125ZM19.0484%208.36458L18.8424%207.90899L18.6705%207.98671L18.5928%208.15858L19.0484%208.36458ZM17.9651%2021.7604L17.5088%2021.9649L17.9651%2022.9827L18.4213%2021.9649L17.9651%2021.7604ZM16.8817%2019.3438L17.338%2019.1392L17.2601%2018.9654L17.0863%2018.8875L16.8817%2019.3438ZM14.4651%2018.2604L14.2605%2017.8042L13.2427%2018.2604L14.2605%2018.7167L14.4651%2018.2604ZM16.8817%2017.1771L17.0863%2017.6333L17.2601%2017.5554L17.338%2017.3816L16.8817%2017.1771ZM17.9651%2014.7604L18.4213%2014.5559L17.9651%2013.5381L17.5088%2014.5559L17.9651%2014.7604ZM19.0484%2017.1771L18.5921%2017.3816L18.6701%2017.5554L18.8439%2017.6333L19.0484%2017.1771ZM21.4651%2018.2604L21.6696%2018.7167L22.6874%2018.2604L21.6696%2017.8042L21.4651%2018.2604ZM19.0484%2019.3438L18.8439%2018.8875L18.6701%2018.9654L18.5921%2019.1392L19.0484%2019.3438ZM10.9651%2019.2604L10.5093%2019.466L10.9651%2020.4762L11.4208%2019.466L10.9651%2019.2604ZM8.94423%2014.7812L9.39999%2014.5756L9.32222%2014.4033L9.14985%2014.3255L8.94423%2014.7812ZM4.46506%2012.7604L4.25944%2012.3047L3.24924%2012.7604L4.25944%2013.2162L4.46506%2012.7604ZM8.94423%2010.7396L9.14985%2011.1953L9.32222%2011.1176L9.39999%2010.9452L8.94423%2010.7396ZM10.9651%206.26042L11.4208%206.05479L10.9651%205.0446L10.5093%206.05479L10.9651%206.26042ZM12.9859%2010.7396L12.5301%2010.9452L12.6079%2011.1176L12.7803%2011.1953L12.9859%2010.7396ZM17.4651%2012.7604L17.6707%2013.2162L18.6809%2012.7604L17.6707%2012.3047L17.4651%2012.7604ZM12.9859%2014.7812L12.7803%2014.3255L12.6079%2014.4033L12.5301%2014.5756L12.9859%2014.7812ZM17.9651%2010.7604L18.4192%2010.5511L17.315%208.1553L16.8609%208.36458L16.4068%208.57386L17.511%2010.9697L17.9651%2010.7604ZM16.8609%208.36458L17.0669%207.90899L14.6711%206.82566L14.4651%207.28125L14.2591%207.73684L16.6549%208.82017L16.8609%208.36458ZM14.4651%207.28125L14.6743%207.73534L17.0702%206.63118L16.8609%206.17708L16.6516%205.72299L14.2558%206.82715L14.4651%207.28125ZM16.8609%206.17708L17.315%206.38636L18.4192%203.99053L17.9651%203.78125L17.511%203.57197L16.4068%205.9678L16.8609%206.17708ZM17.9651%203.78125L17.5095%203.98726L18.5928%206.38309L19.0484%206.17708L19.504%205.97108L18.4206%203.57524L17.9651%203.78125ZM19.0484%206.17708L18.8391%206.63118L21.2349%207.73534L21.4442%207.28125L21.6535%206.82715L19.2577%205.72299L19.0484%206.17708ZM21.4442%207.28125L21.2382%206.82566L18.8424%207.90899L19.0484%208.36458L19.2544%208.82017L21.6502%207.73684L21.4442%207.28125ZM19.0484%208.36458L18.5928%208.15858L17.5095%2010.5544L17.9651%2010.7604L18.4206%2010.9664L19.504%208.57059L19.0484%208.36458ZM17.9651%2021.7604L18.4213%2021.5559L17.338%2019.1392L16.8817%2019.3438L16.4255%2019.5483L17.5088%2021.9649L17.9651%2021.7604ZM16.8817%2019.3438L17.0863%2018.8875L14.6696%2017.8042L14.4651%2018.2604L14.2605%2018.7167L16.6772%2019.8L16.8817%2019.3438ZM14.4651%2018.2604L14.6696%2018.7167L17.0863%2017.6333L16.8817%2017.1771L16.6772%2016.7208L14.2605%2017.8042L14.4651%2018.2604ZM16.8817%2017.1771L17.338%2017.3816L18.4213%2014.9649L17.9651%2014.7604L17.5088%2014.5559L16.4255%2016.9726L16.8817%2017.1771ZM17.9651%2014.7604L17.5088%2014.9649L18.5921%2017.3816L19.0484%2017.1771L19.5046%2016.9726L18.4213%2014.5559L17.9651%2014.7604ZM19.0484%2017.1771L18.8439%2017.6333L21.2605%2018.7167L21.4651%2018.2604L21.6696%2017.8042L19.2529%2016.7208L19.0484%2017.1771ZM21.4651%2018.2604L21.2605%2017.8042L18.8439%2018.8875L19.0484%2019.3438L19.2529%2019.8L21.6696%2018.7167L21.4651%2018.2604ZM19.0484%2019.3438L18.5921%2019.1392L17.5088%2021.5559L17.9651%2021.7604L18.4213%2021.9649L19.5046%2019.5483L19.0484%2019.3438ZM10.9651%2019.2604L11.4208%2019.0548L9.39999%2014.5756L8.94423%2014.7812L8.48846%2014.9869L10.5093%2019.466L10.9651%2019.2604ZM8.94423%2014.7812L9.14985%2014.3255L4.67068%2012.3047L4.46506%2012.7604L4.25944%2013.2162L8.7386%2015.237L8.94423%2014.7812ZM4.46506%2012.7604L4.67068%2013.2162L9.14985%2011.1953L8.94423%2010.7396L8.7386%2010.2838L4.25944%2012.3047L4.46506%2012.7604ZM8.94423%2010.7396L9.39999%2010.9452L11.4208%206.46604L10.9651%206.26042L10.5093%206.05479L8.48846%2010.534L8.94423%2010.7396ZM10.9651%206.26042L10.5093%206.46604L12.5301%2010.9452L12.9859%2010.7396L13.4417%2010.534L11.4208%206.05479L10.9651%206.26042ZM12.9859%2010.7396L12.7803%2011.1953L17.2594%2013.2162L17.4651%2012.7604L17.6707%2012.3047L13.1915%2010.2838L12.9859%2010.7396ZM17.4651%2012.7604L17.2594%2012.3047L12.7803%2014.3255L12.9859%2014.7812L13.1915%2015.237L17.6707%2013.2162L17.4651%2012.7604ZM12.9859%2014.7812L12.5301%2014.5756L10.5093%2019.0548L10.9651%2019.2604L11.4208%2019.466L13.4417%2014.9869L12.9859%2014.7812Z%22%20fill%3D%22%23DDDDDD%22%20mask%3D%22url(%23path-2-inside-1_4816_19485)%22%2F%3E%0A%3C%2Fg%3E%0A%3Cdefs%3E%0A%3C%2Fdefs%3E%0A%3C%2Fsvg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 200;
+}
+</style><script>
+(function() {
+  var selector = "img[src*=\"8MfwaMBC1LKeLMOuJv8kkp\"],[style*=\"8MfwaMBC1LKeLMOuJv8kkp\"],img[src*=\"9knqQ5ZGlFG2gPM1VtT_uZ\"],[style*=\"9knqQ5ZGlFG2gPM1VtT_uZ\"],img[src*=\"aYXPaZJ2ADi8eCQGHwe_S2\"],[style*=\"aYXPaZJ2ADi8eCQGHwe_S2\"],img[src*=\"bEoPlEt73tR69i5PwfZOZK\"],[style*=\"bEoPlEt73tR69i5PwfZOZK\"]";
+  if (!selector) return;
+  const targets = document.querySelectorAll(selector);
+  if (!targets.length) return;
+
+  const pairs = [];
+  targets.forEach(function(target) {
+    const badge = document.createElement('div');
+    badge.className = 'ai-image-badge';
+    document.body.appendChild(badge);
+    pairs.push({ target: target, badge: badge });
+  });
+
+  function position() {
+    const bodyRect = document.body.getBoundingClientRect();
+    const bodyTop = bodyRect.top + document.body.clientTop;
+    const bodyLeft = bodyRect.left + document.body.clientLeft;
+    pairs.forEach(function({target, badge}) {
+      const rect = target.getBoundingClientRect();
+      badge.style.top = (rect.bottom - bodyTop - 25 - 8) + 'px';
+      badge.style.left = (rect.right - bodyLeft - 25 - 8) + 'px';
+    });
+  }
+
+  new ResizeObserver(position).observe(document.body);
+  position();
+})();
+</script><div class="ai-image-badge" style="top: 22.4844px; left: 31.5px;"></div><div class="ai-image-badge" style="top: 809px; left: 1232px;"></div><div class="ai-image-badge" style="top: 1413.52px; left: 1150.5px;"></div><div class="ai-image-badge" style="top: 2731.02px; left: 1232px;"></div><div class="ai-image-badge" style="top: 2796.02px; left: 599.5px;"></div>
+</body></html>
